@@ -224,7 +224,9 @@ def key_metrics(ticker, api_key, period="annual"):
 
     return pd.DataFrame(data_formatted)
 
-api_key = "4d1d8612c6f15e10c2a2327977f81d43"
+f = open('/home/wunnakoko/.api/api_key','r')
+
+api_key = f.readline()
 
 try:
     ticker = sys.argv[1].upper()

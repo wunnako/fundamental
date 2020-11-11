@@ -35,7 +35,9 @@ except:
     print('usage : '+__file__+' <ticker>')
     sys.exit(1)
 
-api_key = "4d1d8612c6f15e10c2a2327977f81d43"
+f = open('/home/wunnakoko/.api/api_key', 'r')
+
+api_key = f.readline()
 
 techindicator = technical_indicator(ticker, api_key, "12")
 
