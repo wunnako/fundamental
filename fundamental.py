@@ -110,6 +110,23 @@ def cashflow_statement(ticker, api_key, period="annual"):
 
     return pd.DataFrame(data_formatted)
 
+def market_cap(ticker, api_key):
+    response = urlopen("https://financialmodelingprep.com/api/v3/market-capitalization/" + ticker + "?apikey=" + api_key)
+
+    data = json.loads(response.read().decode("utf=8"))
+
+    if 'Error Message' in data:
+        raise ValueError(data['Error Message'])
+
+    data_formatted = ()
+
+    for value in data:
+        data_formatted = value
+
+
+    return data_formatted
+
+
 def ratios(ticker, api_key, period="annual"):
     response = urlopen("https://financialmodelingprep.com/api/v3/ratios/" +
                        ticker + "?limit=40&apikey=" + api_key)
@@ -240,9 +257,12 @@ growth = int(input("Estimated Growth % "))
 
 quotedata = quote(ticker, api_key)
 
+marketcap = market_cap(ticker, api_key)
+
 print('name             ' + str(quotedata['name']))
-print('price            ' + str(quotedata['price']))
+print('price            ' + "${:,.2f}".format(quotedata['price']))
 print('pe               ' + str(quotedata['pe']))
+print('market cap       ' + "${:,.2f}".format(marketcap['marketCap']))
 
 incomestatement = income_statement(ticker, api_key)
 
