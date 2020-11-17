@@ -255,6 +255,14 @@ print(ticker)
 
 growth = int(input("Estimated Growth % "))
 
+if growth <= 0:
+    growth = 0
+
+discountrate = int(input("Discount Rate % "))
+
+if discountrate <= 0:
+    discountrate = 2
+
 quotedata = quote(ticker, api_key)
 
 marketcap = market_cap(ticker, api_key)
@@ -300,10 +308,7 @@ debttoearning.loc['ZambiValuePerShare'] = (bsstatement.loc['totalStockholdersEqu
 
 cashflowstatement = cashflow_statement(ticker, api_key)
 
-if growth > 0:
-	debttoearning.loc["IntrinsicValue(DCF)"] = discounted_cash_flow(ratio.loc['freeCashFlowPerShare'], growth)
-else:
-	debttoearning.loc["IntrinsicValue(DCF)"] = discounted_cash_flow(ratio.loc['freeCashFlowPerShare'])
+debttoearning.loc["IntrinsicValue(DCF)"] = discounted_cash_flow(ratio.loc['freeCashFlowPerShare'], growth, discountrate)
 
 debttoearning.loc["IntrinsicValue(10X)"] = ((incomestatement.loc['incomeBeforeTax'] + cashflowstatement.loc['depreciationAndAmortization'] + cashflowstatement.loc['accountsPayables'] + cashflowstatement.loc['accountsReceivables'] + (cashflowstatement.loc['capitalExpenditure']/2))/quotedata['sharesOutstanding']) * 10
 
