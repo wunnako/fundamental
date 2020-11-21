@@ -10,6 +10,7 @@ except ImportError:
 import json
 import pandas as pd
 import sys
+import getjson
 
 def date_correction(date):
 
@@ -32,10 +33,9 @@ def quote(ticker, api_key):
     
     return data_formatted
 
-def income_statement(ticker, api_key, period="annual"):
-    response = urlopen("https://financialmodelingprep.com/api/v3/income-statement/" +
-                       ticker + "?period=" + period + "&apikey=" + api_key)
-    data = json.loads(response.read().decode("utf-8"))
+def income_statement(ticker):
+
+    data = getjson.request_json(ticker,'income_statement')
 
     if 'Error Message' in data:
         raise ValueError(data['Error Message'])
@@ -43,13 +43,10 @@ def income_statement(ticker, api_key, period="annual"):
     data_formatted = {}
     
     for value in data:
-        if period == "quarter":
-            date = value['date'][:7]
-        else:
-            date = value['date'][:4]
-            month = value['date'][5:7]
-            if month == "01":
-                date = date_correction(date)
+        date = value['date'][:4]
+        month = value['date'][5:7]
+        if month == "01":
+            date = date_correction(date)
 
         del value['date']
         del value['symbol']
@@ -58,24 +55,20 @@ def income_statement(ticker, api_key, period="annual"):
 
     return pd.DataFrame(data_formatted)
 
-def balance_sheet_statement(ticker, api_key, period="annual"):
-    response = urlopen("https://financialmodelingprep.com/api/v3/balance-sheet-statement/" +
-                       ticker + "?period=" + period + "&apikey=" + api_key)
-    data = json.loads(response.read().decode("utf-8"))
+def balance_sheet_statement(ticker):
 
+    data = getjson.request_json(ticker,'balance_sheet_statement')
+    
     if 'Error Message' in data:
         raise ValueError(data['Error Message'])
         
     data_formatted = {}
     
     for value in data:
-        if period == "quarter":
-            date = value['date'][:7]
-        else:
-            date = value['date'][:4]
-            month = value['date'][5:7]
-            if month == "01":
-                date = date_correction(date)
+        date = value['date'][:4]
+        month = value['date'][5:7]
+        if month == "01":
+            date = date_correction(date)
 
         del value['date']
         del value['symbol']
@@ -84,10 +77,9 @@ def balance_sheet_statement(ticker, api_key, period="annual"):
 
     return pd.DataFrame(data_formatted)
 
-def cashflow_statement(ticker, api_key, period="annual"):
-    response = urlopen("https://financialmodelingprep.com/api/v3/cash-flow-statement/" +
-                       ticker + "?period=" + period + "&apikey=" + api_key)
-    data = json.loads(response.read().decode("utf-8"))
+def cashflow_statement(ticker):
+
+    data = getjson.request_json(ticker,'cashflow_statement')
 
     if 'Error Message' in data:
         raise ValueError(data['Error Message'])
@@ -95,13 +87,10 @@ def cashflow_statement(ticker, api_key, period="annual"):
     data_formatted = {}
     
     for value in data:
-        if period == "quarter":
-            date = value['date'][:7]
-        else:
-            date = value['date'][:4]
-            month = value['date'][5:7]
-            if month == "01":
-                date = date_correction(date)
+        date = value['date'][:4]
+        month = value['date'][5:7]
+        if month == "01":
+            date = date_correction(date)
 
         del value['date']
         del value['symbol']
@@ -126,11 +115,9 @@ def market_cap(ticker, api_key):
 
     return data_formatted
 
-
-def ratios(ticker, api_key, period="annual"):
-    response = urlopen("https://financialmodelingprep.com/api/v3/ratios/" +
-                       ticker + "?limit=40&apikey=" + api_key)
-    data = json.loads(response.read().decode("utf-8"))
+def ratios(ticker):
+    
+    data = getjson.request_json(ticker,'ratios')
 
     if 'Error Message' in data:
         raise ValueError(data['Error Message'])
@@ -138,13 +125,10 @@ def ratios(ticker, api_key, period="annual"):
     data_formatted = {}
     
     for value in data:
-        if period == "quarter":
-            date = value['date'][:7]
-        else:
-            date = value['date'][:4]
-            month = value['date'][5:7]
-            if month == "01":
-                date = date_correction(date)
+        date = value['date'][:4]
+        month = value['date'][5:7]
+        if month == "01":
+            date = date_correction(date)
 
         del value['date']
         del value['symbol']
@@ -152,28 +136,10 @@ def ratios(ticker, api_key, period="annual"):
         data_formatted[date] = value
 
     return pd.DataFrame(data_formatted)
+
     
 def key_metrics_ttm(ticker, api_key):
-    """
-    Description
-    ----
-    Gives information about key metrics of a company overtime which includes
-    i.a. PE ratio, Debt to Equity, Dividend Yield and Average Inventory.
 
-    Input
-    ----
-    ticker (string)
-        The company ticker (for example: "NFLX")
-    api_key (string)
-        The API Key obtained from https://financialmodelingprep.com/developer/docs/
-    period (string)
-        Data period, this can be "annual" or "quarter".
-
-    Output
-    ----
-    data (dataframe)
-        Data with variables in rows and the period in columns.
-    """
     response = urlopen("https://financialmodelingprep.com/api/v3/key-metrics-ttm/" + ticker + "?apikey=" + api_key)
     data = json.loads(response.read().decode("utf-8"))
 
@@ -185,54 +151,30 @@ def key_metrics_ttm(ticker, api_key):
         data_formatted = value
 
     return data_formatted
-	
+    
 def discounted_cash_flow(cf, growth=15, discountrate=6, n=10):
 
-	dcf = cf
-	
-	for i in range(n):
-		cf = cf*(pow((1+(growth/100)),1))
-		dcf += cf/(pow((1+(discountrate/100)),(i+1)))
+    dcf = cf
+    
+    for i in range(n):
+        cf = cf*(pow((1+(growth/100)),1))
+        dcf += cf/(pow((1+(discountrate/100)),(i+1)))
 
-	return dcf
+    return dcf
 
-def key_metrics(ticker, api_key, period="annual"):
-    """
-    Description
-    ----
-    Gives information about key metrics of a company overtime which includes
-    i.a. PE ratio, Debt to Equity, Dividend Yield and Average Inventory.
+def key_metrics(ticker):
 
-    Input
-    ----
-    ticker (string)
-        The company ticker (for example: "NFLX")
-    api_key (string)
-        The API Key obtained from https://financialmodelingprep.com/developer/docs/
-    period (string)
-        Data period, this can be "annual" or "quarter".
-
-    Output
-    ----
-    data (dataframe)
-        Data with variables in rows and the period in columns.
-    """
-    response = urlopen("https://financialmodelingprep.com/api/v3/key-metrics/" +
-                       ticker + "?period=" + period + "&apikey=" + api_key)
-    data = json.loads(response.read().decode("utf-8"))
-
+    data = getjson.request_json(ticker,'key_metrics')
+    
     if 'Error Message' in data:
         raise ValueError(data['Error Message'])
 
     data_formatted = {}
     for value in data:
-        if period == "quarter":
-            date = value['date'][:7]
-        else:
-            date = value['date'][:4]
-            month = value['date'][5:7]
-            if month == "01":
-                date = date_correction(date)
+        date = value['date'][:4]
+        month = value['date'][5:7]
+        if month == "01":
+            date = date_correction(date)
 
         del value['date']
         del value['symbol']
@@ -241,7 +183,8 @@ def key_metrics(ticker, api_key, period="annual"):
 
     return pd.DataFrame(data_formatted)
 
-f = open('/home/wunnakoko/.api/api_key','r')
+#f = open('/home/wunnakoko/.api/api_key','r')
+f = open('api_key','r')
 
 api_key = f.readline()
 
@@ -267,14 +210,14 @@ quotedata = quote(ticker, api_key)
 
 marketcap = market_cap(ticker, api_key)
 
-print('name             ' + str(quotedata['name']))
-print('price            ' + "${:,.2f}".format(quotedata['price']))
-print('pe               ' + str(quotedata['pe']))
-print('market cap       ' + "${:,.2f}".format(marketcap['marketCap']))
+print('Name             ' + str(quotedata['name']))
+print('Price            ' + "${:,.2f}".format(quotedata['price']))
+print('PE               ' + str(quotedata['pe']))
+print('Market Cap       ' + "${:,.2f}".format(marketcap['marketCap']))
 
-incomestatement = income_statement(ticker, api_key)
+incomestatement = income_statement(ticker)
 
-bsstatement = balance_sheet_statement(ticker, api_key)
+bsstatement = balance_sheet_statement(ticker)
 
 debttoearning = pd.DataFrame()
 
@@ -286,11 +229,11 @@ debttoearning['DebtToEarning'] = debttoearning['longTermDebt']/debttoearning['ne
 
 debttoearning = debttoearning.T
 
-ratio = ratios(ticker, api_key)
+ratio = ratios(ticker)
 
 debttoearning = debttoearning.append(ratio.loc[['currentRatio','freeCashFlowPerShare','returnOnEquity','returnOnCapitalEmployed','returnOnAssets'], : ])
 
-keymetrics = key_metrics(ticker, api_key)
+keymetrics = key_metrics(ticker)
 
 #debttoearning = debttoearning.append(keymetrics.loc[['returnOnTangibleAssets','tangibleBookValuePerShare'], : ])
 
@@ -306,7 +249,7 @@ debttoearning.loc['ROA %'] = debttoearning.loc['returnOnAssets']*100
 
 debttoearning.loc['ZambiValuePerShare'] = (bsstatement.loc['totalStockholdersEquity'] - bsstatement.loc['goodwillAndIntangibleAssets'] - bsstatement.loc['totalLiabilities'])/quotedata['sharesOutstanding']
 
-cashflowstatement = cashflow_statement(ticker, api_key)
+cashflowstatement = cashflow_statement(ticker)
 
 debttoearning.loc["IntrinsicValue(DCF)"] = discounted_cash_flow(ratio.loc['freeCashFlowPerShare'], growth, discountrate)
 
