@@ -3,8 +3,8 @@
 import json
 from urllib.request import urlopen
 
-#f = open('/home/wunnakoko/.api/api_key','r')
-f = open('api_key','r')
+f = open('/home/wunnakoko/.api/api_key','r')
+#f = open('api_key','r')
 
 api_key = f.readline()
 

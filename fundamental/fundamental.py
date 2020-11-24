@@ -183,8 +183,8 @@ def key_metrics(ticker):
 
     return pd.DataFrame(data_formatted)
 
-#f = open('/home/wunnakoko/.api/api_key','r')
-f = open('api_key','r')
+f = open('/home/wunnakoko/.api/api_key','r')
+#f = open('api_key','r')
 
 api_key = f.readline()
 
@@ -228,6 +228,10 @@ debttoearning['longTermDebt'] = bsstatement.loc['longTermDebt']
 debttoearning['DebtToEarning'] = debttoearning['longTermDebt']/debttoearning['netIncome']
 
 debttoearning = debttoearning.T
+
+debttoearning.loc['netIncome'] = debttoearning.loc['netIncome'].map('${:,.2f}'.format)
+
+debttoearning.loc['longTermDebt'] = debttoearning.loc['longTermDebt'].map('${:,.2f}'.format)
 
 ratio = ratios(ticker)
 
