@@ -245,6 +245,8 @@ debttoearning.loc['EPS'] = incomestatement.loc['netIncome']/quotedata['sharesOut
 
 debttoearning.loc['PE Ratio'] = quotedata['price']/debttoearning.loc['EPS']
 
+debttoearning.loc['EPS'] = debttoearning.loc['EPS'].map('${:,.2f}'.format)
+
 debttoearning.loc['ROE %'] = debttoearning.loc['returnOnEquity']*100
 
 debttoearning.loc['ROIC %'] = debttoearning.loc['returnOnCapitalEmployed']*100
@@ -257,9 +259,13 @@ cashflowstatement = cashflow_statement(ticker)
 
 debttoearning.loc["IntrinsicValue(DCF)"] = discounted_cash_flow(ratio.loc['freeCashFlowPerShare'], growth, discountrate)
 
+debttoearning.loc["IntrinsicValue(DCF)"] = debttoearning.loc["IntrinsicValue(DCF)"].map('${:,.2f}'.format)
+
 debttoearning.loc["IntrinsicValue(10X)"] = ((incomestatement.loc['incomeBeforeTax'] + cashflowstatement.loc['depreciationAndAmortization'] + cashflowstatement.loc['accountsPayables'] + cashflowstatement.loc['accountsReceivables'] + (cashflowstatement.loc['capitalExpenditure']/2))/quotedata['sharesOutstanding']) * 10
 
-print(debttoearning)
+debttoearning.loc["IntrinsicValue(10X)"] = debttoearning.loc["IntrinsicValue(10X)"].map('${:,.2f}'.format)
+
+print(debttoearning.iloc[:,:10])
 
 #print(incomestatement.loc['incomeBeforeTax'])
 
