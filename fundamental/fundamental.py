@@ -239,6 +239,8 @@ debttoearning = debttoearning.append(ratio.loc[['currentRatio','freeCashFlowPerS
 
 keymetrics = key_metrics(ticker)
 
+debttoearning.loc['Acid Test'] = (bsstatement.loc['cashAndShortTermInvestments']+bsstatement.loc['netReceivables'])/bsstatement.loc['totalCurrentLiabilities']
+
 #debttoearning = debttoearning.append(keymetrics.loc[['returnOnTangibleAssets','tangibleBookValuePerShare'], : ])
 
 debttoearning.loc['EPS'] = incomestatement.loc['netIncome']/quotedata['sharesOutstanding']
@@ -267,6 +269,9 @@ debttoearning.loc["IntrinsicValue(10X)"] = debttoearning.loc["IntrinsicValue(10X
 
 print(debttoearning.iloc[:,:10])
 
+note = "\n\nAcid test < 1\tCurrent Ratio <2\tROE>ROIC"
+
+print(note)
 #print(incomestatement.loc['incomeBeforeTax'])
 
 #print(cashflowstatement.loc[['depreciationAndAmortization','accountsPayables','accountsReceivables','capitalExpenditure'],:])

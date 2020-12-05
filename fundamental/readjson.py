@@ -2,7 +2,6 @@
 
 import json
 import os.path
-from os import path
 
 def ratios(ticker):
 
