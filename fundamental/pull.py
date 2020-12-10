@@ -1,11 +1,7 @@
 #!/usr/bin/env python
 
 import json
-
-try:
-    from urllib.request import urlopen
-except ImportError:
-    from urlib2 import urlopen
+from urllib.request import urlopen
 
 f = open('/home/wunnakoko/.api/api_key','r')
 #f = open('api_key','r')

@@ -208,12 +208,15 @@ if discountrate <= 0:
 
 quotedata = quote(ticker, api_key)
 
+keymetricsttm = key_metrics_ttm(ticker, api_key)
+
 marketcap = market_cap(ticker, api_key)
 
-print('Name             ' + str(quotedata['name']))
-print('Price            ' + "${:,.2f}".format(quotedata['price']))
-print('PE               ' + str(quotedata['pe']))
-print('Market Cap       ' + "${:,.2f}".format(marketcap['marketCap']))
+print('Name                     ' + str(quotedata['name']))
+print('Price                    ' + "${:,.2f}".format(quotedata['price']))
+print('PE                       ' + str(quotedata['pe']))
+print('Market Cap               ' + "${:,.2f}".format(marketcap['marketCap']))
+print('Free Cash Flow Yield TTM ' + "{0:.2f}%".format(keymetricsttm['freeCashFlowYieldTTM']* 100))
 
 incomestatement = income_statement(ticker)
 
@@ -222,6 +225,8 @@ bsstatement = balance_sheet_statement(ticker)
 debttoearning = pd.DataFrame()
 
 debttoearning['netIncome'] = incomestatement.loc['netIncome']
+
+debttoearning['totalCurrentLiabilities'] = bsstatement.loc['totalCurrentLiabilities'].map('${:,.2f}'.format)
 
 debttoearning['longTermDebt'] = bsstatement.loc['longTermDebt']
 
@@ -235,25 +240,26 @@ debttoearning.loc['longTermDebt'] = debttoearning.loc['longTermDebt'].map('${:,.
 
 ratio = ratios(ticker)
 
-debttoearning = debttoearning.append(ratio.loc[['currentRatio','freeCashFlowPerShare','returnOnEquity','returnOnCapitalEmployed','returnOnAssets'], : ])
+debttoearning.loc['ROE %'] = (ratio.loc['returnOnEquity']*100).map('{0:.2f}%'.format)
+
+debttoearning.loc['ROIC %'] = (ratio.loc['returnOnCapitalEmployed']*100).map('{0:.2f}%'.format)
+
+debttoearning.loc['ROA %'] = (ratio.loc['returnOnAssets']*100).map('{0:.2f}%'.format)
+
+debttoearning = debttoearning.append(ratio.loc[['currentRatio','freeCashFlowPerShare','priceToFreeCashFlowsRatio'], : ])
 
 keymetrics = key_metrics(ticker)
 
+#if bsstatement.loc['totalCurrentLiabilities'].astype(int) > 0 or bsstatement.loc['totalCurrentLiabilities'] != None:
 debttoearning.loc['Acid Test'] = (bsstatement.loc['cashAndShortTermInvestments']+bsstatement.loc['netReceivables'])/bsstatement.loc['totalCurrentLiabilities']
 
-#debttoearning = debttoearning.append(keymetrics.loc[['returnOnTangibleAssets','tangibleBookValuePerShare'], : ])
+debttoearning = debttoearning.append(keymetrics.loc[['returnOnTangibleAssets','tangibleBookValuePerShare'], : ])
 
 debttoearning.loc['EPS'] = incomestatement.loc['netIncome']/quotedata['sharesOutstanding']
 
 debttoearning.loc['PE Ratio'] = quotedata['price']/debttoearning.loc['EPS']
 
 debttoearning.loc['EPS'] = debttoearning.loc['EPS'].map('${:,.2f}'.format)
-
-debttoearning.loc['ROE %'] = debttoearning.loc['returnOnEquity']*100
-
-debttoearning.loc['ROIC %'] = debttoearning.loc['returnOnCapitalEmployed']*100
-
-debttoearning.loc['ROA %'] = debttoearning.loc['returnOnAssets']*100
 
 debttoearning.loc['ZambiValuePerShare'] = (bsstatement.loc['totalStockholdersEquity'] - bsstatement.loc['goodwillAndIntangibleAssets'] - bsstatement.loc['totalLiabilities'])/quotedata['sharesOutstanding']
 
@@ -269,7 +275,7 @@ debttoearning.loc["IntrinsicValue(10X)"] = debttoearning.loc["IntrinsicValue(10X
 
 print(debttoearning.iloc[:,:10])
 
-note = "\n\nAcid test < 1\tCurrent Ratio <2\tROE>ROIC"
+note = "\n\nAcid test < 1\tCurrent Ratio < 2\tROE > ROIC"
 
 print(note)
 #print(incomestatement.loc['incomeBeforeTax'])
