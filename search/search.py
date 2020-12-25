@@ -1,11 +1,22 @@
 #!/usr/bin/env python
 
+try:
+    # For Python 3.0 and later
+    from urllib.request import urlopen
+except ImportError:
+    # Fall back to Python 2's urllib2
+    from urllib2 import urlopen
+
 import json
-import sys
-from urllib.request import urlopen
+import time
 
 def quote(ticker, api_key):
-    response = urlopen("https://financialmodelingprep.com/api/v3/quote/" + ticker + "?apikey=" + api_key)
+    try:
+        response = urlopen("https://financialmodelingprep.com/api/v3/quote/" + ticker + "?apikey=" + api_key)
+    except HTTPError:
+        time.sleep(1)
+        response = urlopen("https://financialmodelingprep.com/api/v3/quote/" + ticker + "?apikey=" + api_key)
+        
     data = json.loads(response.read().decode("utf-8"))
 
     if 'Error Message' in data:
@@ -38,10 +49,10 @@ with open('tickerlist', 'w') as fout:
 checklist = {}
 
 for ticker in tickers:
-	quotedata = quote(ticker, api_key)
-	
-	if quotedata['pe'] != None and quotedata['pe'] < 16:
-		checklist[ticker] = quotedata['pe']
+    quotedata = quote(ticker, api_key)
+    
+    if quotedata['pe'] != None and quotedata['pe'] < 16:
+        checklist[ticker] = quotedata['pe']
 
 for check in checklist:
-	print(check + '\t' + "{:,.2f}".format(checklist[check]))
+    print(check + '\t' + "{:,.2f}".format(checklist[check]))
