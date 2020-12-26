@@ -257,9 +257,9 @@ debttoearning = debttoearning.append(keymetrics.loc[['returnOnTangibleAssets','t
 
 debttoearning.loc['EPS'] = incomestatement.loc['netIncome']/quotedata['sharesOutstanding']
 
-debttoearning.loc['PE Ratio'] = quotedata['price']/debttoearning.loc['EPS']
+debttoearning.loc["Enterprise Earning Per Share"] = (incomestatement.loc["operatingIncome"] - incomestatement.loc["interestExpense"])/quotedata['sharesOutstanding']
 
-debttoearning.loc['EPS'] = debttoearning.loc['EPS'].map('${:,.2f}'.format)
+debttoearning.loc['PE Ratio'] = quotedata['price']/debttoearning.loc['EPS']
 
 debttoearning.loc['ZambiValuePerShare'] = (bsstatement.loc['totalStockholdersEquity'] - bsstatement.loc['goodwillAndIntangibleAssets'] - bsstatement.loc['totalLiabilities'])/quotedata['sharesOutstanding']
 
@@ -267,11 +267,21 @@ cashflowstatement = cashflow_statement(ticker)
 
 debttoearning.loc["IntrinsicValue(DCF)"] = discounted_cash_flow(ratio.loc['freeCashFlowPerShare'], growth, discountrate)
 
-debttoearning.loc["IntrinsicValue(DCF)"] = debttoearning.loc["IntrinsicValue(DCF)"].map('${:,.2f}'.format)
-
 debttoearning.loc["IntrinsicValue(10X)"] = ((incomestatement.loc['incomeBeforeTax'] + cashflowstatement.loc['depreciationAndAmortization'] + cashflowstatement.loc['accountsPayables'] + cashflowstatement.loc['accountsReceivables'] + (cashflowstatement.loc['capitalExpenditure']/2))/quotedata['sharesOutstanding']) * 10
 
+# formatting
+
+debttoearning.loc['EPS'] = debttoearning.loc['EPS'].map('${:,.2f}'.format)
+
 debttoearning.loc["IntrinsicValue(10X)"] = debttoearning.loc["IntrinsicValue(10X)"].map('${:,.2f}'.format)
+
+debttoearning.loc['Enterprise Earning Per Share'] = debttoearning.loc['Enterprise Earning Per Share'].map('${:,.2f}'.format)
+
+debttoearning.loc['freeCashFlowPerShare'] = debttoearning.loc['freeCashFlowPerShare'].map('${:,.2f}'.format)
+
+debttoearning.loc["IntrinsicValue(DCF)"] = debttoearning.loc["IntrinsicValue(DCF)"].map('${:,.2f}'.format)
+
+debttoearning.loc["tangibleBookValuePerShare"] = debttoearning.loc["tangibleBookValuePerShare"].map('${:,.2f}'.format)
 
 print(debttoearning.iloc[:,:10])
 
