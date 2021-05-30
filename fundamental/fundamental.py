@@ -33,6 +33,20 @@ def quote(ticker, api_key):
     
     return data_formatted
 
+def ratios_ttm(ticker, api_key):
+    response = urlopen("https://financialmodelingprep.com/api/v3/ratios-ttm/" + ticker + "?apikey=" + api_key)
+    data = json.loads(response.read().decode("utf-8"))
+
+    if 'Error Message' in data:
+        raise ValueError(data['Error Message'])
+        
+    data_formatted = {}
+    for value in data:
+        data_formatted = value
+    
+    return data_formatted
+
+
 def income_statement(ticker):
 
     data = getjson.request_json(ticker,'income_statement')
@@ -210,6 +224,8 @@ quotedata = quote(ticker, api_key)
 
 keymetricsttm = key_metrics_ttm(ticker, api_key)
 
+ratiosttm = ratios_ttm(ticker, api_key)
+
 marketcap = market_cap(ticker, api_key)
 
 print('Name                     ' + str(quotedata['name']))
@@ -217,6 +233,8 @@ print('Price                    ' + "${:,.2f}".format(quotedata['price']))
 print('PE                       ' + str(quotedata['pe']))
 print('Market Cap               ' + "${:,.2f}".format(marketcap['marketCap']))
 print('Free Cash Flow Yield TTM ' + "{0:.2f}%".format(keymetricsttm['freeCashFlowYieldTTM']* 100))
+print('Price To Sales TTM       ' + str(ratiosttm['priceToSalesRatioTTM']))
+
 
 incomestatement = income_statement(ticker)
 
