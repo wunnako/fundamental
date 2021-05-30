@@ -34,13 +34,14 @@ for type in data_type:
     for value in data:    
         date_array.append(value['date'])
 
-    print(date_array)
-    print(data1)
+#    print(date_array)
+#    print(data1)
 
     for value in data1:
         if value['date'] in date_array:
             print("exists")
         else:
+            print("merge")
             data.append(value)
             
     data = sorted(data, key=lambda k: k['date'], reverse=True)
