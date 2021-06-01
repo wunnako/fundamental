@@ -222,18 +222,20 @@ if discountrate <= 0:
 
 quotedata = quote(ticker, api_key)
 
-keymetricsttm = key_metrics_ttm(ticker, api_key)
+#keymetricsttm = key_metrics_ttm(ticker, api_key)
 
 ratiosttm = ratios_ttm(ticker, api_key)
 
-marketcap = market_cap(ticker, api_key)
+#marketcap = market_cap(ticker, api_key)
 
 print('Name                     ' + str(quotedata['name']))
 print('Price                    ' + "${:,.2f}".format(quotedata['price']))
 print('PE                       ' + str(quotedata['pe']))
-print('Market Cap               ' + "${:,.2f}".format(marketcap['marketCap']))
-print('Free Cash Flow Yield TTM ' + "{0:.2f}%".format(keymetricsttm['freeCashFlowYieldTTM']* 100))
-print('Price To Sales TTM       ' + str(ratiosttm['priceToSalesRatioTTM']))
+print('Market Cap               ' + "${:,.2f}".format(quotedata['marketCap']))
+#print('Free Cash Flow Yield TTM ' + "{0:.2f}%".format(keymetricsttm['freeCashFlowYieldTTM']* 100))
+print('Free Cash Flow Yield TTM ' + "{0:.2f}%".format((ratiosttm['freeCashFlowPerShareTTM']/quotedata['price'])* 100))
+print('Price To Sales TTM       ' + "{:,.2f}".format(ratiosttm['priceToSalesRatioTTM']))
+print('Price To Earning TTM     ' + "{:,.2f}".format(ratiosttm['priceEarningsRatioTTM']))
 
 
 incomestatement = income_statement(ticker)
