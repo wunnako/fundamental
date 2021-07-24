@@ -285,7 +285,9 @@ debttoearning.loc['ZambiValuePerShare'] = (bsstatement.loc['totalStockholdersEqu
 
 cashflowstatement = cashflow_statement(ticker)
 
-debttoearning.loc["IntrinsicValue(DCF)"] = discounted_cash_flow(ratio.loc['freeCashFlowPerShare'], growth, discountrate)
+debttoearning.loc['freeCashFlowPerShare'].fillna(0, inplace = True)
+
+debttoearning.loc["IntrinsicValue(DCF)"] = discounted_cash_flow(debttoearning.loc['freeCashFlowPerShare'], growth, discountrate)
 
 debttoearning.loc["IntrinsicValue(10X)"] = ((incomestatement.loc['incomeBeforeTax'] + cashflowstatement.loc['depreciationAndAmortization'] + cashflowstatement.loc['accountsPayables'] + cashflowstatement.loc['accountsReceivables'] + (cashflowstatement.loc['capitalExpenditure']/2))/quotedata['sharesOutstanding']) * 10
 
@@ -300,6 +302,8 @@ debttoearning.loc['Enterprise Earning Per Share'] = debttoearning.loc['Enterpris
 debttoearning.loc['freeCashFlowPerShare'] = debttoearning.loc['freeCashFlowPerShare'].map('${:,.2f}'.format)
 
 debttoearning.loc["IntrinsicValue(DCF)"] = debttoearning.loc["IntrinsicValue(DCF)"].map('${:,.2f}'.format)
+
+debttoearning.loc['tangibleBookValuePerShare'].fillna(0, inplace = True)
 
 debttoearning.loc["tangibleBookValuePerShare"] = debttoearning.loc["tangibleBookValuePerShare"].map('${:,.2f}'.format)
 
