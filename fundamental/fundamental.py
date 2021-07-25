@@ -11,6 +11,7 @@ import json
 import pandas as pd
 import sys
 import getjson
+import numpy as pd
 
 def date_correction(date):
 
@@ -168,13 +169,22 @@ def key_metrics_ttm(ticker, api_key):
     
 def discounted_cash_flow(cf, growth=15, discountrate=6, n=10):
 
-    dcf = cf
+    dcf = []
     
-    for i in range(n):
-        cf = cf*(pow((1+(growth/100)),1))
-        dcf += cf/(pow((1+(discountrate/100)),(i+1)))
+    for cfvalue in cf:
+        cfseries = []
+        print(cfvalue)    
+        for i in range(n):
+            cfseries.append(cfvalue*(pow((1+(growth/100)),1)))
+        print(cfseries)
+        npv= np.npv(discountrate, cfseries);
+        print(npv)
+        dcf.append(npv)
 
-    return dcf
+    print(dcf)
+    cf['dcf'] = dcf
+
+    return cf['dcf']
 
 def key_metrics(ticker):
 
