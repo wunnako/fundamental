@@ -11,7 +11,7 @@ import json
 import pandas as pd
 import sys
 import getjson
-import numpy as pd
+import numpy_financial as np
 
 def date_correction(date):
 
@@ -173,15 +173,13 @@ def discounted_cash_flow(cf, growth=15, discountrate=6, n=10):
     
     for cfvalue in cf:
         cfseries = []
-        print(cfvalue)    
+    
         for i in range(n):
             cfseries.append(cfvalue*(pow((1+(growth/100)),1)))
-        print(cfseries)
+
         npv= np.npv(discountrate, cfseries);
-        print(npv)
         dcf.append(npv)
 
-    print(dcf)
     cf['dcf'] = dcf
 
     return cf['dcf']
@@ -322,6 +320,3 @@ print(debttoearning.iloc[:,:10])
 note = "\n\nAcid test < 1\tCurrent Ratio < 2\tROE > ROIC"
 
 print(note)
-#print(incomestatement.loc['incomeBeforeTax'])
-
-#print(cashflowstatement.loc[['depreciationAndAmortization','accountsPayables','accountsReceivables','capitalExpenditure'],:])
