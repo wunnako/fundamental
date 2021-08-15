@@ -167,21 +167,22 @@ def key_metrics_ttm(ticker, api_key):
 
     return data_formatted
     
-def discounted_cash_flow(cf, growth=15, discountrate=6, n=10):
+def discounted_cash_flow(cf, growth=15, discountrate=6, n=15):
 
     dcf = []
     
     for cfvalue in cf:
         cfseries = []
-    
+        
         for i in range(n):
-            cfseries.append(cfvalue*(pow((1+(growth/100)),1)))
+            cfseries.append(np.fv((growth/100), i+1, 0, -cfvalue))
+        
+        npv = np.npv((discountrate/100), cfseries)
 
-        npv= np.npv(discountrate, cfseries);
         dcf.append(npv)
-
+        
     cf['dcf'] = dcf
-
+    
     return cf['dcf']
 
 def key_metrics(ticker):
@@ -291,13 +292,17 @@ debttoearning.loc['PE Ratio'] = quotedata['price']/debttoearning.loc['EPS']
 
 debttoearning.loc['ZambiValuePerShare'] = (bsstatement.loc['totalStockholdersEquity'] - bsstatement.loc['goodwillAndIntangibleAssets'] - bsstatement.loc['totalLiabilities'])/quotedata['sharesOutstanding']
 
+debttoearning.loc['ZambiValuePerShare'] = debttoearning.loc['ZambiValuePerShare'].map('${:,.2f}'.format)
+
 cashflowstatement = cashflow_statement(ticker)
 
 debttoearning.loc['freeCashFlowPerShare'].fillna(0, inplace = True)
 
+debttoearning.loc['Interest Coverage Ratio'] = incomestatement.loc['incomeBeforeTax']/incomestatement.loc['interestExpense']
+
 debttoearning.loc["IntrinsicValue(DCF)"] = discounted_cash_flow(debttoearning.loc['freeCashFlowPerShare'], growth, discountrate)
 
-debttoearning.loc["IntrinsicValue(10X)"] = ((incomestatement.loc['incomeBeforeTax'] + cashflowstatement.loc['depreciationAndAmortization'] + cashflowstatement.loc['accountsPayables'] + cashflowstatement.loc['accountsReceivables'] + (cashflowstatement.loc['capitalExpenditure']/2))/quotedata['sharesOutstanding']) * 10
+debttoearning.loc["IntrinsicValue(10X)"] = ((incomestatement.loc['incomeBeforeTax'] + cashflowstatement.loc['depreciationAndAmortization'] + cashflowstatement.loc['accountsPayables'] + cashflowstatement.loc['accountsReceivables'] - (cashflowstatement.loc['capitalExpenditure']/2))/quotedata['sharesOutstanding']) * 10
 
 # formatting
 
