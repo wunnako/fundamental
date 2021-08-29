@@ -255,7 +255,7 @@ debttoearning = pd.DataFrame()
 
 debttoearning['netIncome'] = incomestatement.loc['netIncome']
 
-debttoearning.loc["incomeBeforeTax"] = incomestatement.loc['incomeBeforeTax'].map('${:,.2f}'.format)
+debttoearning["incomeBeforeTax"] = incomestatement.loc['incomeBeforeTax'].map('${:,.2f}'.format)
 
 debttoearning['totalCurrentLiabilities'] = bsstatement.loc['totalCurrentLiabilities'].map('${:,.2f}'.format)
 
