@@ -206,8 +206,8 @@ def key_metrics(ticker):
 
     return pd.DataFrame(data_formatted)
 
-f = open('/home/wunnakoko/.api/api_key','r')
-#f = open('api_key','r')
+f = open('../api_key','r')
+#f = open('/home/wunnakoko/.api/api_key','r')
 
 api_key = f.readline()
 
@@ -300,6 +300,8 @@ cashflowstatement = cashflow_statement(ticker)
 
 debttoearning.loc['freeCashFlowPerShare'].fillna(0, inplace = True)
 
+incomestatement.loc['interestExpense'].replace(to_replace=0.0, value=0.1, inplace = True)
+
 debttoearning.loc['Interest Coverage Ratio'] = incomestatement.loc['incomeBeforeTax']/incomestatement.loc['interestExpense']
 
 debttoearning.loc["IntrinsicValue(DCF)"] = discounted_cash_flow(debttoearning.loc['freeCashFlowPerShare'], growth, discountrate)
@@ -321,6 +323,8 @@ debttoearning.loc["IntrinsicValue(DCF)"] = debttoearning.loc["IntrinsicValue(DCF
 debttoearning.loc['tangibleBookValuePerShare'].fillna(0, inplace = True)
 
 debttoearning.loc["tangibleBookValuePerShare"] = debttoearning.loc["tangibleBookValuePerShare"].map('${:,.2f}'.format)
+
+#pd.set_option('max_columns', 10) To print 10 columns
 
 print(debttoearning.iloc[:,:10])
 
