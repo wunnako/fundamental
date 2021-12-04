@@ -1,0 +1,6 @@
+numpy_financial
+#numpy
+pandas
+keras
+#numba
+#GPUtil

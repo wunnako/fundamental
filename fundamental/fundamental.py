@@ -12,6 +12,7 @@ import pandas as pd
 import sys
 import getjson
 import numpy_financial as np
+from numpy import average
 
 def date_correction(date):
 
@@ -60,7 +61,7 @@ def income_statement(ticker):
     for value in data:
         date = value['date'][:4]
         month = value['date'][5:7]
-        if month == "01":
+        if month == "01" or month == "02":
             date = date_correction(date)
 
         del value['date']
@@ -82,7 +83,7 @@ def balance_sheet_statement(ticker):
     for value in data:
         date = value['date'][:4]
         month = value['date'][5:7]
-        if month == "01":
+        if month == "01" or month == "02":
             date = date_correction(date)
 
         del value['date']
@@ -104,7 +105,7 @@ def cashflow_statement(ticker):
     for value in data:
         date = value['date'][:4]
         month = value['date'][5:7]
-        if month == "01":
+        if month == "01" or month == "02":
             date = date_correction(date)
 
         del value['date']
@@ -142,7 +143,7 @@ def ratios(ticker):
     for value in data:
         date = value['date'][:4]
         month = value['date'][5:7]
-        if month == "01":
+        if month == "01" or month == "02":
             date = date_correction(date)
 
         del value['date']
@@ -151,6 +152,13 @@ def ratios(ticker):
         data_formatted[date] = value
 
     return pd.DataFrame(data_formatted)
+
+def avg_pe(incomestatement, quotedata):
+
+	avgeps = average( incomestatement.loc['eps'], weights = incomestatement.loc['weightedAverageShsOut'])
+		
+	return quotedata['price']/avgeps
+	
 
     
 def key_metrics_ttm(ticker, api_key):
@@ -331,3 +339,5 @@ print(debttoearning.iloc[:,:10])
 note = "\n\nAcid test < 1\tCurrent Ratio < 2\tROE > ROIC"
 
 print(note)
+
+print("\n\nWeighted Average PE : %5.2f" % (avg_pe(incomestatement,quotedata)))
