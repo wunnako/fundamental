@@ -2,7 +2,14 @@
 
 import json
 import os.path
+import sys
+
+sys.path.insert(1, 'libs')
 import pull
+
+f = open('api_key','r')
+
+api_key = f.readline()
 
 ticker = input("Ticker = ").upper()
 
@@ -19,15 +26,15 @@ for type in data_type:
     f.close()    
     
     if type == 'ratios':
-        data1 = pull.ratios(ticker)
+        data1 = pull.ratios(ticker, api_key)
     if type == 'income_statement':
-        data1 = pull.income_statement(ticker)
+        data1 = pull.income_statement(ticker, api_key)
     if type == 'balance_sheet_statement':
-        data1 = pull.balance_sheet_statement(ticker)
+        data1 = pull.balance_sheet_statement(ticker, api_key)
     if type == 'key_metrics':
-        data1 = pull.key_metrics(ticker)
+        data1 = pull.key_metrics(ticker, api_key)
     if type == 'cashflow_statement':
-        data1 = pull.cashflow_statement(ticker)
+        data1 = pull.cashflow_statement(ticker, api_key)
 
     date_array = []
 

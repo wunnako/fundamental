@@ -36,8 +36,23 @@ def income_statement(ticker, api_key):
 
 def avg_pe(ticker, quotedata, api_key):
 
-	incomestatement = income_statement(ticker, api_key)
+    incomestatement = income_statement(ticker, api_key)
+    
+    max_yrs = 10
+    
+    i_statement = incomestatement.iloc[:,:max_yrs]
 
-	avgeps = average( incomestatement.loc['eps'], weights = incomestatement.loc['weightedAverageShsOut'])
-		
-	return quotedata['price']/avgeps
+    avgeps = average( i_statement.loc['eps'], weights = i_statement.loc['weightedAverageShsOut'])
+        
+    return quotedata['price']/avgeps
+
+def check(ticker, api_key):
+
+    data = getjson.request_json(ticker,'income_statement', api_key)
+    
+    if (int(data[0]['date'][:4]) < 2020):
+        print(ticker + '\tUpdate Needed')
+#    else:
+#        print(ticker + '\tUpdate Not Needed')
+        
+    return

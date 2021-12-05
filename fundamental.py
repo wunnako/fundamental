@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 
-try:
-    # For Python 3.0 and later
-    from urllib.request import urlopen
-except ImportError:
-    # Fall back to Python 2's urllib2
-    from urllib2 import urlopen
-
+from urllib.request import urlopen
 import json
 import pandas as pd
 import sys
@@ -49,29 +43,6 @@ def ratios_ttm(ticker, api_key):
         data_formatted = value
     
     return data_formatted
-
-
-# def income_statement(ticker):
-
-    # data = getjson.request_json(ticker,'income_statement')
-
-    # if 'Error Message' in data:
-        # raise ValueError(data['Error Message'])
-        
-    # data_formatted = {}
-    
-    # for value in data:
-        # date = value['date'][:4]
-        # month = value['date'][5:7]
-        # if month == "01" or month == "02":
-            # date = date_correction(date)
-
-        # del value['date']
-        # del value['symbol']
-
-        # data_formatted[date] = value
-
-    # return pd.DataFrame(data_formatted)
 
 def balance_sheet_statement(ticker):
 
@@ -283,8 +254,11 @@ debttoearning = debttoearning.append(ratio.loc[['currentRatio','freeCashFlowPerS
 
 keymetrics = key_metrics(ticker)
 
-#if bsstatement.loc['totalCurrentLiabilities'].astype(int) > 0 or bsstatement.loc['totalCurrentLiabilities'] != None:
+bsstatement.loc['totalCurrentLiabilities'].replace(to_replace=0.0, value=0.1, inplace = True)
+
 debttoearning.loc['Acid Test'] = (bsstatement.loc['cashAndShortTermInvestments']+bsstatement.loc['netReceivables'])/bsstatement.loc['totalCurrentLiabilities']
+
+#debttoearning.loc['Acid Test'].replace(to_replace=r'^\d{5,}\.\d+$', value = None, regex = True, inplace = True)
 
 debttoearning = debttoearning.append(keymetrics.loc[['returnOnTangibleAssets','tangibleBookValuePerShare'], : ])
 
