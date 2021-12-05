@@ -10,9 +10,11 @@ except ImportError:
 import json
 import pandas as pd
 import sys
-import getjson
 import numpy_financial as np
-from numpy import average
+
+sys.path.insert(1, 'libs')
+import getjson
+import avgpe
 
 def date_correction(date):
 
@@ -49,31 +51,31 @@ def ratios_ttm(ticker, api_key):
     return data_formatted
 
 
-def income_statement(ticker):
+# def income_statement(ticker):
 
-    data = getjson.request_json(ticker,'income_statement')
+    # data = getjson.request_json(ticker,'income_statement')
 
-    if 'Error Message' in data:
-        raise ValueError(data['Error Message'])
+    # if 'Error Message' in data:
+        # raise ValueError(data['Error Message'])
         
-    data_formatted = {}
+    # data_formatted = {}
     
-    for value in data:
-        date = value['date'][:4]
-        month = value['date'][5:7]
-        if month == "01" or month == "02":
-            date = date_correction(date)
+    # for value in data:
+        # date = value['date'][:4]
+        # month = value['date'][5:7]
+        # if month == "01" or month == "02":
+            # date = date_correction(date)
 
-        del value['date']
-        del value['symbol']
+        # del value['date']
+        # del value['symbol']
 
-        data_formatted[date] = value
+        # data_formatted[date] = value
 
-    return pd.DataFrame(data_formatted)
+    # return pd.DataFrame(data_formatted)
 
 def balance_sheet_statement(ticker):
 
-    data = getjson.request_json(ticker,'balance_sheet_statement')
+    data = getjson.request_json(ticker,'balance_sheet_statement', api_key)
     
     if 'Error Message' in data:
         raise ValueError(data['Error Message'])
@@ -95,7 +97,7 @@ def balance_sheet_statement(ticker):
 
 def cashflow_statement(ticker):
 
-    data = getjson.request_json(ticker,'cashflow_statement')
+    data = getjson.request_json(ticker,'cashflow_statement', api_key)
 
     if 'Error Message' in data:
         raise ValueError(data['Error Message'])
@@ -133,7 +135,7 @@ def market_cap(ticker, api_key):
 
 def ratios(ticker):
     
-    data = getjson.request_json(ticker,'ratios')
+    data = getjson.request_json(ticker,'ratios', api_key)
 
     if 'Error Message' in data:
         raise ValueError(data['Error Message'])
@@ -153,14 +155,6 @@ def ratios(ticker):
 
     return pd.DataFrame(data_formatted)
 
-def avg_pe(incomestatement, quotedata):
-
-	avgeps = average( incomestatement.loc['eps'], weights = incomestatement.loc['weightedAverageShsOut'])
-		
-	return quotedata['price']/avgeps
-	
-
-    
 def key_metrics_ttm(ticker, api_key):
 
     response = urlopen("https://financialmodelingprep.com/api/v3/key-metrics-ttm/" + ticker + "?apikey=" + api_key)
@@ -195,7 +189,7 @@ def discounted_cash_flow(cf, growth=15, discountrate=6, n=15):
 
 def key_metrics(ticker):
 
-    data = getjson.request_json(ticker,'key_metrics')
+    data = getjson.request_json(ticker,'key_metrics', api_key)
     
     if 'Error Message' in data:
         raise ValueError(data['Error Message'])
@@ -214,7 +208,7 @@ def key_metrics(ticker):
 
     return pd.DataFrame(data_formatted)
 
-f = open('../api_key','r')
+f = open('api_key','r')
 #f = open('/home/wunnakoko/.api/api_key','r')
 
 api_key = f.readline()
@@ -255,7 +249,7 @@ print('Price To Sales TTM       ' + "{:,.2f}".format(ratiosttm['priceToSalesRati
 print('Price To Earning TTM     ' + "{:,.2f}".format(ratiosttm['priceEarningsRatioTTM']))
 
 
-incomestatement = income_statement(ticker)
+incomestatement = avgpe.income_statement(ticker, api_key)
 
 bsstatement = balance_sheet_statement(ticker)
 
@@ -340,4 +334,4 @@ note = "\n\nAcid test < 1\tCurrent Ratio < 2\tROE > ROIC"
 
 print(note)
 
-print("\n\nWeighted Average PE : %5.2f" % (avg_pe(incomestatement,quotedata)))
+print("\n\nWeighted Average PE : %5.2f" % (avgpe.avg_pe(ticker,quotedata, api_key)))

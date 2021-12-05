@@ -17,7 +17,7 @@ def checkfile(ticker, filetype):
     else:
         return False
 
-def request_json(ticker, filetype):
+def request_json(ticker, filetype, api_key):
 
     data = []
 
@@ -35,7 +35,7 @@ def request_json(ticker, filetype):
 
     else:
         if filetype == 'ratios':
-            data = pull.ratios(ticker)
+            data = pull.ratios(ticker, api_key)
             readjson.write(ticker, data, 'ratios')
         if filetype == 'income_statement':
             data = pull.income_statement(ticker)

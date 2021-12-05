@@ -3,12 +3,12 @@
 import json
 from urllib.request import urlopen
 
-f = open('/home/wunnakoko/.api/api_key','r')
-#f = open('api_key','r')
+#f = open('../api_key','r')
+#f = open('/home/wunnakoko/.api/api_key','r')
 
-api_key = f.readline()
+#api_key = f.readline()
 
-def ratios(ticker, period="annual"):
+def ratios(ticker, api_key, period="annual"):
 
     response = urlopen("https://financialmodelingprep.com/api/v3/ratios/" +
                        ticker + "?limit=40&apikey=" + api_key)
@@ -17,7 +17,7 @@ def ratios(ticker, period="annual"):
     return data
 
 
-def income_statement(ticker, period="annual"):
+def income_statement(ticker, api_key, period="annual"):
 
     response = urlopen("https://financialmodelingprep.com/api/v3/income-statement/" +
                        ticker + "?period=" + period + "&apikey=" + api_key)
@@ -26,7 +26,7 @@ def income_statement(ticker, period="annual"):
     return data
 
 
-def balance_sheet_statement(ticker, period="annual"):
+def balance_sheet_statement(ticker, api_key, period="annual"):
 
     response = urlopen("https://financialmodelingprep.com/api/v3/balance-sheet-statement/" +
                        ticker + "?period=" + period + "&apikey=" + api_key)
@@ -34,7 +34,7 @@ def balance_sheet_statement(ticker, period="annual"):
     
     return data
 
-def cashflow_statement(ticker, period="annual"):
+def cashflow_statement(ticker, api_key, period="annual"):
 
     response = urlopen("https://financialmodelingprep.com/api/v3/cash-flow-statement/" +
                        ticker + "?period=" + period + "&apikey=" + api_key)
@@ -42,7 +42,7 @@ def cashflow_statement(ticker, period="annual"):
     
     return data
 
-def key_metrics(ticker, period="annual"):
+def key_metrics(ticker, api_key, period="annual"):
 
     response = urlopen("https://financialmodelingprep.com/api/v3/key-metrics/" +
                        ticker + "?period=" + period + "&apikey=" + api_key)

@@ -1,6 +1,6 @@
-FROM ubuntu:latest
+#FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y git
+#RUN apt-get update && apt-get install -y git
 
 FROM python:3.10
 

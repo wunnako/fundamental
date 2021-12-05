@@ -9,6 +9,11 @@ except ImportError:
 
 import json
 import time
+import os
+import sys
+
+sys.path.insert(1, 'libs')
+import avgpe
 
 def quote(ticker, api_key):
     try:
@@ -18,41 +23,40 @@ def quote(ticker, api_key):
         response = urlopen("https://financialmodelingprep.com/api/v3/quote/" + ticker + "?apikey=" + api_key)
         
     data = json.loads(response.read().decode("utf-8"))
-
+    
     if 'Error Message' in data:
         raise ValueError(data['Error Message'])
         
-    data_formatted = {}
-    for value in data:
-        data_formatted = value
-    
-    return data_formatted
+    return data
 
-f = open('/home/wunnakoko/.api/api_key','r')
-#f = open('api_key','r')
+def getDirList(path):
+
+    dir_content = os.listdir(path)
+    
+    return dir_content
+    
+
+#f = open('/home/wunnakoko/.api/api_key','r')
+f = open('api_key','r')
 
 api_key = f.readline()
 
-with open('tickerlist', 'r') as finput:
-    tickers = finput.read().splitlines()
+path = 'data'
 
-finput.close()
+tickers = getDirList(path)
 
-tickers = set(tickers)
-
-print(tickers)
-
-with open('tickerlist', 'w') as fout:
-    for item in tickers:
-        fout.write("%s\n" % item)
-
-checklist = {}
+tick = None
 
 for ticker in tickers:
-    quotedata = quote(ticker, api_key)
-    
-    if quotedata['pe'] != None and quotedata['pe'] < 16:
-        checklist[ticker] = quotedata['pe']
+    if tick == None:
+        tick = ticker
+    else:
+        tick = tick + ',' + ticker
 
-for check in checklist:
-    print(check + '\t' + "{:,.2f}".format(checklist[check]))
+quotedata = quote(tick, api_key)
+
+for data in quotedata:
+    if (data['pe'] != None and data['pe'] < 20):
+#		avgpe.avg_pe(data['symbol'], quotedata))
+        print(data['symbol'] + '\t' + str(data['price']) + '\t' + str(data['pe']) + '\t' + str(avgpe.avg_pe(data['symbol'], data, api_key)))
+    
