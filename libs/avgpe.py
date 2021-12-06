@@ -52,7 +52,5 @@ def check(ticker, api_key):
     
     if (int(data[0]['date'][:4]) < 2020):
         print(ticker + '\tUpdate Needed')
-#    else:
-#        print(ticker + '\tUpdate Not Needed')
         
     return

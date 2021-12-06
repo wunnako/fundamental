@@ -38,16 +38,16 @@ def request_json(ticker, filetype, api_key):
             data = pull.ratios(ticker, api_key)
             readjson.write(ticker, data, 'ratios')
         if filetype == 'income_statement':
-            data = pull.income_statement(ticker)
+            data = pull.income_statement(ticker, api_key)
             readjson.write(ticker, data, 'income_statement')
         if filetype == 'balance_sheet_statement':
-            data = pull.balance_sheet_statement(ticker)
+            data = pull.balance_sheet_statement(ticker, api_key)
             readjson.write(ticker, data, 'balance_sheet_statement')
         if filetype == 'key_metrics':
-            data = pull.key_metrics(ticker)
+            data = pull.key_metrics(ticker, api_key)
             readjson.write(ticker, data, 'key_metrics')
         if filetype == 'cashflow_statement':
-            data = pull.cashflow_statement(ticker)
+            data = pull.cashflow_statement(ticker, api_key)
             readjson.write(ticker, data, 'cashflow_statement')
     
     return data
