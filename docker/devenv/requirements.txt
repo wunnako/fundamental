@@ -2,6 +2,8 @@ numpy_financial
 #os-sys
 #numpy
 pandas
-keras
+#keras
 #numba
 #GPUtil
+#Pillow
+#matplotlib

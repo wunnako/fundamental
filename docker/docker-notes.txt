@@ -3,3 +3,5 @@ docker run -it --rm -v c:/:/c sastest/devenv:alpha bash
 docker build -t getting-started .
 
 docker run --rm --name oc-eval -d -e OWNCLOUD_DOMAIN=localhost:8080 -p8080:8080 owncloud/server
+
+sudo chmod 666 /var/run/docker.sock
