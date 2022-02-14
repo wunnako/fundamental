@@ -1,5 +1,61 @@
 [
     {
+        "date": "2022-01-01",
+        "symbol": "IRBT",
+        "reportedCurrency": "USD",
+        "cik": "0001159167",
+        "fillingDate": "2022-01-01",
+        "acceptedDate": "2022-01-01",
+        "calendarYear": "2021",
+        "period": "FY",
+        "cashAndCashEquivalents": 0.0,
+        "shortTermInvestments": 33044000,
+        "cashAndShortTermInvestments": 33044000,
+        "netReceivables": 160642000,
+        "inventory": 333296000,
+        "otherCurrentAssets": 262551000,
+        "totalCurrentAssets": 789533000,
+        "propertyPlantEquipmentNet": 116496000,
+        "goodwill": 173292000,
+        "intangibleAssets": 28410000,
+        "goodwillAndIntangibleAssets": 201702000,
+        "longTermInvestments": 0.0,
+        "taxAssets": 37945000,
+        "otherNonCurrentAssets": 38753000,
+        "totalNonCurrentAssets": 394896000,
+        "otherAssets": 0.0,
+        "totalAssets": 1184429000,
+        "accountPayables": 251298000,
+        "shortTermDebt": 0.0,
+        "taxPayables": 0.0,
+        "deferredRevenue": 11767000,
+        "otherCurrentLiabilities": 132618000,
+        "totalCurrentLiabilities": 395683000,
+        "longTermDebt": 43462000,
+        "deferredRevenueNonCurrent": 0.0,
+        "deferredTaxLiabilitiesNonCurrent": 3250000.0,
+        "otherNonCurrentLiabilities": 25311000,
+        "totalNonCurrentLiabilities": 72023000,
+        "otherLiabilities": 0.0,
+        "capitalLeaseObligations": 0,
+        "totalLiabilities": 467706000,
+        "preferredStock": 0,
+        "commonStock": 0.0,
+        "retainedEarnings": 0.0,
+        "accumulatedOtherComprehensiveIncomeLoss": 0.0,
+        "othertotalStockholdersEquity": 0.0,
+        "totalStockholdersEquity": 716723000,
+        "totalLiabilitiesAndStockholdersEquity": 1184429000,
+        "minorityInterest": 0,
+        "totalEquity": 716723000,
+        "totalLiabilitiesAndTotalEquity": 1184429000,
+        "totalInvestments": 0.0,
+        "totalDebt": 0.0,
+        "netDebt": 0.0,
+        "link": "",
+        "finalLink": ""
+    },
+    {
         "date": "2021-01-02",
         "symbol": "IRBT",
         "reportedCurrency": "USD",
@@ -46,7 +102,8 @@
         "totalDebt": 56800000,
         "netDebt": -375835000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916721000008/0001159167-21-000008-index.htm",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916721000008/irbt-20210102.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916721000008/irbt-20210102.htm",
+        "calendarYear": "2020"
     },
     {
         "date": "2019-12-28",
@@ -94,7 +151,8 @@
         "totalDebt": 0.0,
         "netDebt": -239392000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916720000007/0001159167-20-000007-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916720000007/irbt-12282019x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916720000007/irbt-12282019x10k.htm",
+        "calendarYear": "2019"
     },
     {
         "date": "2018-12-29",
@@ -142,7 +200,8 @@
         "totalDebt": 0.0,
         "netDebt": -130373000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916719000010/0001159167-19-000010-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916719000010/irbt-12292018x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916719000010/irbt-12292018x10k.htm",
+        "calendarYear": "2018"
     },
     {
         "date": "2017-12-30",
@@ -190,7 +249,8 @@
         "totalDebt": 0.0,
         "netDebt": -128635000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916718000004/0001159167-18-000004-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916718000004/irbt-12302017x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916718000004/irbt-12302017x10k.htm",
+        "calendarYear": "2017"
     },
     {
         "date": "2016-12-31",
@@ -238,7 +298,8 @@
         "totalDebt": 0.0,
         "netDebt": -214523000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916717000007/0001159167-17-000007-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916717000007/irbt-12312016x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916717000007/irbt-12312016x10k.htm",
+        "calendarYear": "2016"
     },
     {
         "date": "2016-01-02",
@@ -286,6 +347,7 @@
         "totalDebt": 0.0,
         "netDebt": -179915000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916716000057/0001159167-16-000057-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916716000057/irbt-122016x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916716000057/irbt-122016x10k.htm",
+        "calendarYear": "2015"
     }
 ]

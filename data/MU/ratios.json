@@ -56,7 +56,8 @@
         "priceSalesRatio": 2.8698356888648258,
         "dividendYield": null,
         "enterpriseValueMultiple": 6.246111109705975,
-        "priceFairValue": 1.8097739230191427
+        "priceFairValue": 1.8097739230191427,
+        "calendarYear": "2021"
     },
     {
         "symbol": "MU",
@@ -114,7 +115,8 @@
         "priceSalesRatio": 2.41056677816655,
         "dividendYield": null,
         "enterpriseValueMultiple": 5.968431403303268,
-        "priceFairValue": 1.3250204864601498
+        "priceFairValue": 1.3250204864601498,
+        "calendarYear": "2020"
     },
     {
         "symbol": "MU",
@@ -172,7 +174,8 @@
         "priceSalesRatio": 2.056564128855849,
         "dividendYield": null,
         "enterpriseValueMultiple": 3.6222899427116486,
-        "priceFairValue": 1.3415439926423456
+        "priceFairValue": 1.3415439926423456,
+        "calendarYear": "2019"
     },
     {
         "symbol": "MU",
@@ -230,7 +233,8 @@
         "priceSalesRatio": 1.7144865256161361,
         "dividendYield": null,
         "enterpriseValueMultiple": 2.5447825190682334,
-        "priceFairValue": 1.6134563696042608
+        "priceFairValue": 1.6134563696042608,
+        "calendarYear": "2018"
     },
     {
         "symbol": "MU",
@@ -288,7 +292,8 @@
         "priceSalesRatio": 2.1075863596102744,
         "dividendYield": null,
         "enterpriseValueMultiple": 4.79246743996744,
-        "priceFairValue": 2.3001111648139196
+        "priceFairValue": 2.3001111648139196,
+        "calendarYear": "2017"
     },
     {
         "symbol": "MU",
@@ -346,6 +351,7 @@
         "priceSalesRatio": 1.4856101298491815,
         "dividendYield": null,
         "enterpriseValueMultiple": 7.415848101265823,
-        "priceFairValue": 1.524841059602649
+        "priceFairValue": 1.524841059602649,
+        "calendarYear": "2016"
     }
 ]

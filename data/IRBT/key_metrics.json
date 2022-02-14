@@ -1,6 +1,69 @@
 [
     {
         "symbol": "IRBT",
+        "date": "2022-01-01",
+        "period": "FY",
+        "revenuePerShare": 57.089227738664135,
+        "netIncomePerShare": 1.1085981103855835,
+        "operatingCashFlowPerShare": -1.1662349979936526,
+        "freeCashFlowPerShare": -2.2579797906102943,
+        "cashPerShare": 1.2054134899500237,
+        "bookValuePerShare": 26.14536898551782,
+        "tangibleBookValuePerShare": 18.78747309670594,
+        "shareholdersEquityPerShare": 26.14536898551782,
+        "interestDebtPerShare": 1.585452157735381,
+        "marketCap": 1796099760,
+        "enterpriseValue": 1839561760,
+        "peRatio": 59.10167028627838,
+        "priceToSalesRatio": 1.1476771116948574,
+        "pocfratio": -56.18078698780106,
+        "pfcfRatio": -29.017088758925976,
+        "pbRatio": 2.505988729258026,
+        "ptbRatio": 2.505988729258026,
+        "evToSales": 1.17544858839083,
+        "enterpriseValueOverEBITDA": 29.866409494585422,
+        "evToOperatingCashFlow": -57.54024898342196,
+        "evToFreeCashFlow": -29.719243917412516,
+        "earningsYield": 0.01691999557975555,
+        "freeCashFlowYield": -0.03446245101664063,
+        "debtToEquity": 0.060639884585816275,
+        "debtToAssets": 0.39487888256704284,
+        "netDebtToEBITDA": 0.7056321335216664,
+        "currentRatio": 1.9953675037845953,
+        "interestCoverage": null,
+        "incomeQuality": -1.0519907864429088,
+        "dividendYield": null,
+        "payoutRatio": 0.0,
+        "salesGeneralAndAdministrativeToRevenue": 0.06338071817848966,
+        "researchAndDdevelopementToRevenue": 0.10308775727849497,
+        "intangiblesToTotalAssets": 0.17029471585042244,
+        "capexToOperatingCashFlow": 0.9361276196434157,
+        "capexToRevenue": -0.019123481536907336,
+        "capexToDepreciation": -0.8984959020084662,
+        "stockBasedCompensationToRevenue": 0.013862095979072031,
+        "grahamNumber": 25.537343238584455,
+        "roic": -0.0013946187999685578,
+        "returnOnTangibleAssets": 0.030924152892919398,
+        "grahamNetNet": -5.381844380403458,
+        "workingCapital": 393850000,
+        "tangibleAssetValue": 515021000,
+        "netCurrentAssetValue": 321827000,
+        "investedCapital": 0.060639884585816275,
+        "averageReceivables": 80321120.361,
+        "averagePayables": 125649129.698,
+        "averageInventory": 166648176.862,
+        "daysSalesOutstanding": 37.4663367810723,
+        "daysPayablesOutstanding": 90.39603306632186,
+        "daysOfInventoryOnHand": 119.89206534422404,
+        "receivablesTurnover": 9.74207865937924,
+        "payablesTurnover": 4.03778780571274,
+        "inventoryTurnover": 3.044404973357016,
+        "roe": 0.04240131822196302,
+        "capexPerShare": -1.0917447926166417,
+        "calendarYear": "2021"
+    },
+    {
+        "symbol": "IRBT",
         "date": "2021-01-02",
         "period": "FY",
         "revenuePerShare": 50.81675429870683,
@@ -59,7 +122,8 @@
         "payablesTurnover": 4.585387775291201,
         "inventoryTurnover": 4.182315852021391,
         "roe": 0.1828217106686192,
-        "capexPerShare": -1.122601961062953
+        "capexPerShare": -1.122601961062953,
+        "calendarYear": "2020"
     },
     {
         "symbol": "IRBT",
@@ -120,7 +184,8 @@
         "payablesTurnover": 5.767379610104575,
         "inventoryTurnover": 4.258632195084749,
         "roe": 0.1308143770061144,
-        "capexPerShare": -1.2297546546024012
+        "capexPerShare": -1.2297546546024012,
+        "calendarYear": "2019"
     },
     {
         "symbol": "IRBT",
@@ -181,7 +246,8 @@
         "payablesTurnover": 3.928244431118457,
         "inventoryTurnover": 3.262748051727175,
         "roe": 0.1643720975412929,
-        "capexPerShare": -1.1320530726256983
+        "capexPerShare": -1.1320530726256983,
+        "calendarYear": "2018"
     },
     {
         "symbol": "IRBT",
@@ -242,7 +308,8 @@
         "payablesTurnover": 3.875236424911448,
         "inventoryTurnover": 4.215314405416526,
         "roe": 0.10835865259702292,
-        "capexPerShare": -0.8128195318749348
+        "capexPerShare": -0.8128195318749348,
+        "calendarYear": "2017"
     },
     {
         "symbol": "IRBT",
@@ -303,7 +370,8 @@
         "payablesTurnover": 5.07259107325991,
         "inventoryTurnover": 6.747775712760489,
         "roe": 0.10782453542302986,
-        "capexPerShare": -0.3823342287572459
+        "capexPerShare": -0.3823342287572459,
+        "calendarYear": "2016"
     },
     {
         "symbol": "IRBT",
@@ -364,6 +432,7 @@
         "payablesTurnover": 5.317524937150272,
         "inventoryTurnover": 5.315542008495736,
         "roe": 0.10572313618951105,
-        "capexPerShare": -0.3112897332846182
+        "capexPerShare": -0.3112897332846182,
+        "calendarYear": "2015"
     }
 ]

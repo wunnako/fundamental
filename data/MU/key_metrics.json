@@ -59,7 +59,8 @@
         "payablesTurnover": 9.909403669724771,
         "inventoryTurnover": 3.8515712057053713,
         "roe": 0.13340768898094826,
-        "capexPerShare": -8.955357142857142
+        "capexPerShare": -8.955357142857142,
+        "calendarYear": "2021"
     },
     {
         "symbol": "MU",
@@ -120,7 +121,8 @@
         "payablesTurnover": 2.558535327488396,
         "inventoryTurnover": 2.6543606206527555,
         "roe": 0.06890450302595139,
-        "capexPerShare": -7.408108108108108
+        "capexPerShare": -7.408108108108108,
+        "calendarYear": "2020"
     },
     {
         "symbol": "MU",
@@ -181,7 +183,8 @@
         "payablesTurnover": 7.575432319618366,
         "inventoryTurnover": 2.4822196170379054,
         "roe": 0.17594269947883281,
-        "capexPerShare": -8.779174147217235
+        "capexPerShare": -8.779174147217235,
+        "calendarYear": "2019"
     },
     {
         "symbol": "MU",
@@ -242,7 +245,8 @@
         "payablesTurnover": 7.387706855791962,
         "inventoryTurnover": 3.477051460361613,
         "roe": 0.4376974050907289,
-        "capexPerShare": -7.707465277777778
+        "capexPerShare": -7.707465277777778,
+        "calendarYear": "2018"
     },
     {
         "symbol": "MU",
@@ -303,7 +307,8 @@
         "payablesTurnover": 8.916729182295574,
         "inventoryTurnover": 3.8059558117195005,
         "roe": 0.27329359325492725,
-        "capexPerShare": -4.347107438016529
+        "capexPerShare": -4.347107438016529,
+        "calendarYear": "2017"
     },
     {
         "symbol": "MU",
@@ -364,6 +369,7 @@
         "payablesTurnover": 8.342327150084317,
         "inventoryTurnover": 3.4247144340602285,
         "roe": -0.0228476821192053,
-        "capexPerShare": -5.614864864864865
+        "capexPerShare": -5.614864864864865,
+        "calendarYear": "2016"
     }
 ]

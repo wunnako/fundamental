@@ -46,7 +46,8 @@
         "totalDebt": 7280000000,
         "netDebt": -483000000,
         "link": "https://www.sec.gov/Archives/edgar/data/723125/000072312521000065/0000723125-21-000065-index.htm",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312521000065/mu-20210902.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312521000065/mu-20210902.htm",
+        "calendarYear": "2021"
     },
     {
         "date": "2020-09-03",
@@ -94,7 +95,8 @@
         "totalDebt": 6643000000,
         "netDebt": -981000000,
         "link": "https://www.sec.gov/Archives/edgar/data/723125/000072312520000082/0000723125-20-000082-index.htm",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312520000082/mu-20200903.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312520000082/mu-20200903.htm",
+        "calendarYear": "2020"
     },
     {
         "date": "2019-08-29",
@@ -142,7 +144,8 @@
         "totalDebt": 5851000000,
         "netDebt": -1301000000,
         "link": "https://www.sec.gov/Archives/edgar/data/723125/000072312519000094/0000723125-19-000094-index.htm",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312519000094/a2019q4.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312519000094/a2019q4.htm",
+        "calendarYear": "2019"
     },
     {
         "date": "2018-08-30",
@@ -190,7 +193,8 @@
         "totalDebt": 4639000000,
         "netDebt": -1867000000,
         "link": "https://www.sec.gov/Archives/edgar/data/723125/000072312518000092/0000723125-18-000092-index.htm",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312518000092/a2018q4.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312518000092/a2018q4.htm",
+        "calendarYear": "2018"
     },
     {
         "date": "2017-08-31",
@@ -238,7 +242,8 @@
         "totalDebt": 11155000000,
         "netDebt": 4856000000,
         "link": "https://www.sec.gov/Archives/edgar/data/723125/000072312517000131/0000723125-17-000131-index.htm",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312517000131/a2017q4.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312517000131/a2017q4.htm",
+        "calendarYear": "2017"
     },
     {
         "date": "2016-09-01",
@@ -286,6 +291,7 @@
         "totalDebt": 9910000000,
         "netDebt": 5770000000,
         "link": "https://www.sec.gov/Archives/edgar/data/723125/000072312516000269/0000723125-16-000269-index.htm",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312516000269/a2016q4.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/723125/000072312516000269/a2016q4.htm",
+        "calendarYear": "2016"
     }
 ]

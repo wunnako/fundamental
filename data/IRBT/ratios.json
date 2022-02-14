@@ -1,6 +1,66 @@
 [
     {
         "symbol": "IRBT",
+        "date": "2022-01-01",
+        "period": "FY",
+        "currentRatio": 1.9953675037845953,
+        "quickRatio": 0.48949790615214706,
+        "cashRatio": 0.0,
+        "daysOfSalesOutstanding": 37.4663367810723,
+        "daysOfInventoryOutstanding": 119.89206534422404,
+        "operatingCycle": 157.35840212529632,
+        "daysOfPayablesOutstanding": 90.39603306632186,
+        "cashConversionCycle": 66.96236905897446,
+        "grossProfitMargin": 0.351631674895702,
+        "operatingProfitMargin": -0.0007028812379911143,
+        "pretaxProfitMargin": 0.018072993577582432,
+        "netProfitMargin": 0.019418691656863604,
+        "effectiveTaxRate": -0.07445905812473483,
+        "returnOnAssets": 0.025657933063104668,
+        "returnOnEquity": 0.04240131822196302,
+        "returnOnCapitalEmployed": -0.0013946187999685578,
+        "netIncomePerEBT": 1.0744590581247349,
+        "ebtPerEbit": -25.71272727272727,
+        "ebitPerRevenue": -0.0007028812379911143,
+        "debtRatio": 0.39487888256704284,
+        "debtEquityRatio": 0.6525617288687541,
+        "longTermDebtToCapitalization": 0.05717292501167479,
+        "totalDebtToCapitalization": null,
+        "interestCoverage": null,
+        "cashFlowToDebtRatio": -0.7355851088307027,
+        "companyEquityMultiplier": 1.652561728868754,
+        "receivablesTurnover": 9.74207865937924,
+        "payablesTurnover": 4.03778780571274,
+        "inventoryTurnover": 3.044404973357016,
+        "fixedAssetTurnover": 13.433826054113446,
+        "assetTurnover": 1.3213008124589993,
+        "operatingCashFlowPerShare": -1.1662349979936526,
+        "freeCashFlowPerShare": -2.2579797906102943,
+        "cashPerShare": 1.2054134899500237,
+        "payoutRatio": 0.0,
+        "operatingCashFlowSalesRatio": -0.020428284707796295,
+        "freeCashFlowOperatingCashFlowRatio": 1.9361276196434156,
+        "cashFlowCoverageRatios": null,
+        "shortTermCoverageRatios": null,
+        "capitalExpenditureCoverageRatio": 1.0682304196738839,
+        "dividendPaidAndCapexCoverageRatio": null,
+        "dividendPayoutRatio": null,
+        "priceBookValueRatio": 2.505988729258026,
+        "priceToBookRatio": 2.505988729258026,
+        "priceToSalesRatio": 1.1476771116948574,
+        "priceEarningsRatio": 59.10167028627838,
+        "priceToFreeCashFlowsRatio": -29.017088758925976,
+        "priceToOperatingCashFlowsRatio": -56.18078698780106,
+        "priceCashFlowRatio": -56.18078698780106,
+        "priceEarningsToGrowthRatio": -0.7544293785702004,
+        "priceSalesRatio": 1.1476771116948574,
+        "dividendYield": null,
+        "enterpriseValueMultiple": 29.866409494585422,
+        "priceFairValue": 2.505988729258026,
+        "calendarYear": "2021"
+    },
+    {
+        "symbol": "IRBT",
         "date": "2021-01-02",
         "period": "FY",
         "currentRatio": 2.865135076259807,
@@ -56,7 +116,8 @@
         "priceSalesRatio": 2.4084576177490056,
         "dividendYield": null,
         "enterpriseValueMultiple": 20.448828297731378,
-        "priceFairValue": 4.282556047919407
+        "priceFairValue": 4.282556047919407,
+        "calendarYear": "2020"
     },
     {
         "symbol": "IRBT",
@@ -114,7 +175,8 @@
         "priceSalesRatio": 1.272945280516635,
         "dividendYield": null,
         "enterpriseValueMultiple": 9.59705102108303,
-        "priceFairValue": 2.3699459719753584
+        "priceFairValue": 2.3699459719753584,
+        "calendarYear": "2019"
     },
     {
         "symbol": "IRBT",
@@ -172,7 +234,8 @@
         "priceSalesRatio": 2.2590438812942533,
         "dividendYield": null,
         "enterpriseValueMultiple": 15.929125671145513,
-        "priceFairValue": 4.610673949510762
+        "priceFairValue": 4.610673949510762,
+        "calendarYear": "2018"
     },
     {
         "symbol": "IRBT",
@@ -230,7 +293,8 @@
         "priceSalesRatio": 3.0398624409018558,
         "dividendYield": null,
         "enterpriseValueMultiple": 25.225305735693304,
-        "priceFairValue": 5.712978098216773
+        "priceFairValue": 5.712978098216773,
+        "calendarYear": "2017"
     },
     {
         "symbol": "IRBT",
@@ -288,7 +352,8 @@
         "priceSalesRatio": 2.610334481777283,
         "dividendYield": null,
         "enterpriseValueMultiple": 20.132732412395328,
-        "priceFairValue": 4.43339966474357
+        "priceFairValue": 4.43339966474357,
+        "calendarYear": "2016"
     },
     {
         "symbol": "IRBT",
@@ -346,6 +411,7 @@
         "priceSalesRatio": 1.644033606905564,
         "dividendYield": null,
         "enterpriseValueMultiple": 10.68508935319814,
-        "priceFairValue": 2.4292693771845975
+        "priceFairValue": 2.4292693771845975,
+        "calendarYear": "2015"
     }
 ]

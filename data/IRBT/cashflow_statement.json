@@ -1,5 +1,47 @@
 [
     {
+        "date": "2022-01-01",
+        "symbol": "IRBT",
+        "reportedCurrency": "USD",
+        "cik": "0001159167",
+        "fillingDate": "2022-01-01",
+        "acceptedDate": "2022-01-01",
+        "calendarYear": "2021",
+        "period": "FY",
+        "netIncome": 30390000,
+        "depreciationAndAmortization": 33309000,
+        "deferredIncomeTax": -6934000.0,
+        "stockBasedCompensation": 21694000,
+        "changeInWorkingCapital": 393849512.696,
+        "accountsReceivables": 10290000,
+        "inventory": -151193000,
+        "accountsPayables": 82289000,
+        "otherWorkingCapital": 393850000,
+        "otherNonCashItems": -504278512.696,
+        "netCashProvidedByOperatingActivities": -31970000,
+        "investmentsInPropertyPlantAndEquipment": -29928000,
+        "acquisitionsNet": -71357000,
+        "purchasesOfInvestments": -10811000,
+        "salesMaturitiesOfInvestments": 63976000,
+        "otherInvestingActivites": 0.0,
+        "netCashUsedForInvestingActivites": -48120000,
+        "debtRepayment": 0.0,
+        "commonStockIssued": 0.0,
+        "commonStockRepurchased": 0.0,
+        "dividendsPaid": 0.0,
+        "otherFinancingActivites": -148442000,
+        "netCashUsedProvidedByFinancingActivities": -148442000,
+        "effectOfForexChangesOnCash": -2646000.0,
+        "netChangeInCash": -231178000,
+        "cashAtEndOfPeriod": 0.0,
+        "cashAtBeginningOfPeriod": 432635000,
+        "operatingCashFlow": -31970000,
+        "capitalExpenditure": -29928000,
+        "freeCashFlow": -61898000,
+        "link": "",
+        "finalLink": ""
+    },
+    {
         "date": "2021-01-02",
         "symbol": "IRBT",
         "reportedCurrency": "USD",
@@ -37,7 +79,8 @@
         "capitalExpenditure": -31599000,
         "freeCashFlow": 200449000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916721000008/0001159167-21-000008-index.htm",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916721000008/irbt-20210102.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916721000008/irbt-20210102.htm",
+        "calendarYear": "2020"
     },
     {
         "date": "2019-12-28",
@@ -76,7 +119,8 @@
         "capitalExpenditure": -35337000,
         "freeCashFlow": 94715000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916720000007/0001159167-20-000007-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916720000007/irbt-12282019x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916720000007/irbt-12282019x10k.htm",
+        "calendarYear": "2019"
     },
     {
         "date": "2018-12-29",
@@ -115,7 +159,8 @@
         "capitalExpenditure": -32422000,
         "freeCashFlow": 39263000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916719000010/0001159167-19-000010-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916719000010/irbt-12292018x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916719000010/irbt-12292018x10k.htm",
+        "calendarYear": "2018"
     },
     {
         "date": "2017-12-30",
@@ -154,7 +199,8 @@
         "capitalExpenditure": -23371000,
         "freeCashFlow": 52944000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916718000004/0001159167-18-000004-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916718000004/irbt-12302017x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916718000004/irbt-12302017x10k.htm",
+        "calendarYear": "2017"
     },
     {
         "date": "2016-12-31",
@@ -193,7 +239,8 @@
         "capitalExpenditure": -10817000,
         "freeCashFlow": 105607000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916717000007/0001159167-17-000007-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916717000007/irbt-12312016x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916717000007/irbt-12312016x10k.htm",
+        "calendarYear": "2016"
     },
     {
         "date": "2016-01-02",
@@ -232,6 +279,7 @@
         "capitalExpenditure": -9372000.0,
         "freeCashFlow": 17340000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916716000057/0001159167-16-000057-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916716000057/irbt-122016x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916716000057/irbt-122016x10k.htm",
+        "calendarYear": "2015"
     }
 ]

@@ -1,5 +1,45 @@
 [
     {
+        "date": "2022-01-01",
+        "symbol": "IRBT",
+        "reportedCurrency": "USD",
+        "cik": "0001159167",
+        "fillingDate": "2022-01-01",
+        "acceptedDate": "2022-01-01",
+        "calendarYear": "2021",
+        "period": "FY",
+        "revenue": 1564987000,
+        "costOfRevenue": 1014688000,
+        "grossProfit": 550299000,
+        "grossProfitRatio": 0.351631674895702,
+        "researchAndDevelopmentExpenses": 161331000,
+        "generalAndAdministrativeExpenses": 99190000,
+        "sellingAndMarketingExpenses": 289848000,
+        "sellingGeneralAndAdministrativeExpenses": 389038000,
+        "otherExpenses": 1030000.0,
+        "operatingExpenses": 551399000,
+        "costAndExpenses": 1566087000,
+        "interestIncome": 0.0,
+        "interestExpense": 0.0,
+        "depreciationAndAmortization": 33309000,
+        "ebitda": 61593000,
+        "ebitdaratio": 0.039356876446897004,
+        "operatingIncome": -1100000.0,
+        "operatingIncomeRatio": -0.0007028812379911143,
+        "totalOtherIncomeExpensesNet": -29384000,
+        "incomeBeforeTax": 28284000,
+        "incomeBeforeTaxRatio": 0.018072993577582432,
+        "incomeTaxExpense": -2106000.0,
+        "netIncome": 30390000,
+        "netIncomeRatio": 0.019418691656863604,
+        "eps": 1.1085981103855835,
+        "epsdiluted": 1.0930475128583246,
+        "weightedAverageShsOut": 27413000,
+        "weightedAverageShsOutDil": 27803000,
+        "link": "",
+        "finalLink": ""
+    },
+    {
         "date": "2021-01-02",
         "symbol": "IRBT",
         "reportedCurrency": "USD",
@@ -33,7 +73,8 @@
         "weightedAverageShsOut": 28148000,
         "weightedAverageShsOutDil": 28763000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916721000008/0001159167-21-000008-index.htm",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916721000008/irbt-20210102.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916721000008/irbt-20210102.htm",
+        "calendarYear": "2020"
     },
     {
         "date": "2019-12-28",
@@ -68,7 +109,8 @@
         "weightedAverageShsOut": 28735000,
         "weightedAverageShsOutDil": 28735000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916720000007/0001159167-20-000007-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916720000007/irbt-12282019x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916720000007/irbt-12282019x10k.htm",
+        "calendarYear": "2019"
     },
     {
         "date": "2018-12-29",
@@ -103,7 +145,8 @@
         "weightedAverageShsOut": 28640000,
         "weightedAverageShsOutDil": 28640000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916719000010/0001159167-19-000010-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916719000010/irbt-12292018x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916719000010/irbt-12292018x10k.htm",
+        "calendarYear": "2018"
     },
     {
         "date": "2017-12-30",
@@ -138,7 +181,8 @@
         "weightedAverageShsOut": 28753000,
         "weightedAverageShsOutDil": 28753000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916718000004/0001159167-18-000004-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916718000004/irbt-12302017x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916718000004/irbt-12302017x10k.htm",
+        "calendarYear": "2017"
     },
     {
         "date": "2016-12-31",
@@ -173,7 +217,8 @@
         "weightedAverageShsOut": 28292000,
         "weightedAverageShsOutDil": 28292000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916717000007/0001159167-17-000007-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916717000007/irbt-12312016x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916717000007/irbt-12312016x10k.htm",
+        "calendarYear": "2016"
     },
     {
         "date": "2016-01-02",
@@ -208,6 +253,7 @@
         "weightedAverageShsOut": 30107000,
         "weightedAverageShsOutDil": 30107000,
         "link": "https://www.sec.gov/Archives/edgar/data/1159167/000115916716000057/0001159167-16-000057-index.html",
-        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916716000057/irbt-122016x10k.htm"
+        "finalLink": "https://www.sec.gov/Archives/edgar/data/1159167/000115916716000057/irbt-122016x10k.htm",
+        "calendarYear": "2015"
     }
 ]
